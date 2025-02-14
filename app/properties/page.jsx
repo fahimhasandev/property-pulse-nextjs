@@ -1,3 +1,4 @@
+import PropertyCard from '@/components/PropertyCard';
 import properties from '@/properties.json';
 
 const PropertiesPage = () => {
@@ -7,10 +8,10 @@ const PropertiesPage = () => {
         {properties.length === 0 ? (
           <p>No Properties found</p>
         ) : (
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-3'>
-            {properties.map((property) => {
-              <div> {property.name}</div>;
-            })}
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+            {properties.map((property) => (
+              <PropertyCard key={property._id} property={property} />
+            ))}
           </div>
         )}
       </div>
