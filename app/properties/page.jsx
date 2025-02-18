@@ -1,11 +1,16 @@
 import PropertyCard from '@/components/PropertyCard';
-import properties from '@/properties.json';
+//import properties from '@/properties.json';
 import connectDB from '@/config/database';
-import Property from '@/models/Proptery';
+import Property from '@/models/Property';
 
 const PropertiesPage = async () => {
   await connectDB();
+
+  // find({}) empty object is find all the properties
+  // lean() - give plain js object insead of mongoose document.
+  const properties = await Property.find({}).lean();
   
+
   return (
     <section className='px-4 py-6'>
       <div className='container-xl lg:container m-auto px-4 py-6'>
